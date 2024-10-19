@@ -61,9 +61,7 @@ pub const MAX_LITERAL: Num = 0;
 #[rustfmt::skip]
 pub const BINARY_OPERATORS: &[BinaryOp] = &[
     OP_OR_SYMBOL, // a || b
-    OP_OR_LOGICAL, // +!!(a || b), ensures output is 0 or 1
     OP_AND_SYMBOL, // a && b
-    OP_AND_LOGICAL, // +!!(a && b), ensures output is 0 or 1
     OP_LT, // a < b
     OP_LE, // a <= b
     OP_GT, // a > b
@@ -87,10 +85,12 @@ pub const BINARY_OPERATORS: &[BinaryOp] = &[
     // OP_SPACE_OR, // a orb
     // OP_OR_SPACE, // aor b
     // OP_SPACE_OR_SPACE, // a or b
+    // OP_OR_LOGICAL, // +!!(a || b), ensures output is 0 or 1
     // OP_AND, // aandb
     // OP_SPACE_AND, // a andb
     // OP_AND_SPACE, // aand b
     // OP_SPACE_AND_SPACE, // a and b
+    // OP_AND_LOGICAL, // +!!(a && b), ensures output is 0 or 1
     // OP_BIT_SHL, // a << b but with checks to ensure b is between [0, bits]
     // OP_BIT_SHR, // a >> b but with checks to ensure b is between [0, bits)
     // OP_MOD_FLOOR, // ((a % b) + b) % b, modulus

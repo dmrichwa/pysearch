@@ -60,47 +60,49 @@ pub const MAX_LITERAL: Num = 0;
 
 #[rustfmt::skip]
 pub const BINARY_OPERATORS: &[BinaryOp] = &[
-    OP_OR,
-    OP_SPACE_OR,
-    OP_OR_SPACE,
-    // OP_SPACE_OR_SPACE,
-    // OP_OR_SYMBOL,
-    // OP_OR_LOGICAL,
-    // OP_AND,
-    // OP_SPACE_AND,
-    // OP_AND_SPACE,
-    // OP_SPACE_AND_SPACE,
-    // OP_AND_SYMBOL,
-    // OP_AND_LOGICAL,
-    OP_LT,
-    OP_LE,
-    // OP_GT,
-    // OP_GE,
-    // OP_EQ,
-    // OP_NE,
-    OP_BIT_OR,
-    OP_BIT_XOR,
-    OP_BIT_AND,
-    OP_BIT_SHL,
-    OP_BIT_SHR,
-    // OP_BIT_SHL_WRAP,
-    // OP_BIT_SHR_WRAP,
-    OP_ADD,
-    OP_SUB,
-    OP_MUL,
-    OP_MOD_FLOOR,
-    OP_DIV_FLOOR,
-    // OP_MOD_TRUNC,
-    // OP_DIV_TRUNC,
-    // OP_GCD,
-    OP_EXP,
+    OP_OR_SYMBOL, // a || b
+    OP_OR_LOGICAL, // +!!(a || b), ensures output is 0 or 1
+    OP_AND_SYMBOL, // a && b
+    OP_AND_LOGICAL, // +!!(a && b), ensures output is 0 or 1
+    OP_LT, // a < b
+    OP_LE, // a <= b
+    OP_GT, // a > b
+    OP_GE, // a >= b
+    OP_EQ, // a == b
+    OP_NE, // a != b
+    OP_BIT_OR, // a | b
+    OP_BIT_XOR, // a ^ b
+    OP_BIT_AND, // a & b
+    OP_BIT_SHL_WRAP, // a << b
+    OP_BIT_SHR_WRAP, // a >> b
+    OP_ADD, // a + b
+    OP_SUB, // a - b
+    OP_MUL, // a * b
+    OP_MOD_TRUNC, // a % b, remainder
+    OP_DIV_TRUNC, // a / b | 0, truncated (e.g. -21 / 4 = -5.25 => -5, -23 / 4 = -5.75 => -5)
+    OP_EXP, // a ** b
+
+    // Not applicable to JavaScript
+    // OP_OR, // aorb
+    // OP_SPACE_OR, // a orb
+    // OP_OR_SPACE, // aor b
+    // OP_SPACE_OR_SPACE, // a or b
+    // OP_AND, // aandb
+    // OP_SPACE_AND, // a andb
+    // OP_AND_SPACE, // aand b
+    // OP_SPACE_AND_SPACE, // a and b
+    // OP_BIT_SHL, // a << b but with checks to ensure b is between [0, bits]
+    // OP_BIT_SHR, // a >> b but with checks to ensure b is between [0, bits)
+    // OP_MOD_FLOOR, // ((a % b) + b) % b, modulus
+    // OP_DIV_FLOOR, // a / b, rounded to negative infinity (e.g. -21 / 4 = -5.25 => -6, -23 / 4 = -5.75 => -6)
+    // OP_GCD, // greatest common divisor(a, b)
 ];
 
 #[rustfmt::skip]
 pub const UNARY_OPERATORS: &[UnaryOp] = &[
-    OP_BIT_NEG,
-    OP_NEG,
-    // OP_NOT,
+    OP_BIT_NEG, // ~a
+    OP_NEG, // -a
+    OP_NOT, // !a
 ];
 
 /// Match leaf expressions 1 output at a time to avoid unnecessary precalculations

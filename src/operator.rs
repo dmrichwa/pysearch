@@ -350,66 +350,66 @@ pub const OP_AND_LOGICAL: BinaryOp = BinaryOp {
 };
 pub const OP_LT: BinaryOp = BinaryOp {
     name: "<",
-    prec: 5,
+    prec: 9,
     apply: apply_lt,
     ..BinaryOp::EMPTY
 };
 pub const OP_LE: BinaryOp = BinaryOp {
     name: "<=",
-    prec: 5,
+    prec: 9,
     apply: apply_le,
     ..BinaryOp::EMPTY
 };
 pub const OP_GT: BinaryOp = BinaryOp {
     name: ">",
-    prec: 5,
+    prec: 9,
     apply: apply_gt,
     ..BinaryOp::EMPTY
 };
 pub const OP_GE: BinaryOp = BinaryOp {
     name: ">=",
-    prec: 5,
+    prec: 9,
     apply: apply_ge,
     ..BinaryOp::EMPTY
 };
 pub const OP_EQ: BinaryOp = BinaryOp {
     name: "==",
-    prec: 5,
+    prec: 8,
     apply: apply_eq,
     commutative: true,
     ..BinaryOp::EMPTY
 };
 pub const OP_NE: BinaryOp = BinaryOp {
     name: "!=",
-    prec: 5,
+    prec: 8,
     apply: apply_ne,
     commutative: true,
     ..BinaryOp::EMPTY
 };
 pub const OP_BIT_OR: BinaryOp = BinaryOp {
     name: "|",
-    prec: 6,
+    prec: 5,
     apply: apply_bit_or,
     commutative: true,
     ..BinaryOp::EMPTY
 };
 pub const OP_BIT_XOR: BinaryOp = BinaryOp {
     name: "^",
-    prec: 7,
+    prec: 6,
     apply: apply_bit_xor,
     commutative: true,
     ..BinaryOp::EMPTY
 };
 pub const OP_BIT_AND: BinaryOp = BinaryOp {
     name: "&",
-    prec: 8,
+    prec: 7,
     apply: apply_bit_and,
     commutative: true,
     ..BinaryOp::EMPTY
 };
 pub const OP_BIT_SHL: BinaryOp = BinaryOp {
     name: "<<",
-    prec: 9,
+    prec: 10,
     apply: apply_bit_shl,
     ..BinaryOp::EMPTY
 };
@@ -419,7 +419,7 @@ pub const OP_BIT_SHL_WRAP: BinaryOp = BinaryOp {
 };
 pub const OP_BIT_SHR: BinaryOp = BinaryOp {
     name: ">>",
-    prec: 9,
+    prec: 10,
     apply: apply_bit_shr,
     ..BinaryOp::EMPTY
 };
@@ -429,45 +429,45 @@ pub const OP_BIT_SHR_WRAP: BinaryOp = BinaryOp {
 };
 pub const OP_ADD: BinaryOp = BinaryOp {
     name: "+",
-    prec: 10,
+    prec: 11,
     apply: apply_add,
     commutative: true,
     ..BinaryOp::EMPTY
 };
 pub const OP_SUB: BinaryOp = BinaryOp {
     name: "-",
-    prec: 10,
+    prec: 11,
     apply: apply_sub,
     ..BinaryOp::EMPTY
 };
 pub const OP_MUL: BinaryOp = BinaryOp {
     name: "*",
-    prec: 11,
+    prec: 12,
     apply: apply_mul,
     commutative: true,
     ..BinaryOp::EMPTY
 };
 pub const OP_MOD_FLOOR: BinaryOp = BinaryOp {
     name: "%",
-    prec: 11,
+    prec: 12,
     apply: apply_mod_floor,
     ..BinaryOp::EMPTY
 };
 pub const OP_MOD_TRUNC: BinaryOp = BinaryOp {
     name: "%",
-    prec: 11,
+    prec: 12,
     apply: apply_mod_trunc,
     ..BinaryOp::EMPTY
 };
 pub const OP_DIV_FLOOR: BinaryOp = BinaryOp {
     name: "//",
-    prec: 11,
+    prec: 12,
     apply: apply_div_floor,
     ..BinaryOp::EMPTY
 };
 pub const OP_DIV_TRUNC: BinaryOp = BinaryOp {
     name: "/",
-    prec: 11,
+    prec: 12,
     apply: apply_div_trunc,
     ..BinaryOp::EMPTY
 };
@@ -487,19 +487,19 @@ pub const OP_EXP: BinaryOp = BinaryOp {
 };
 pub const OP_BIT_NEG: UnaryOp = UnaryOp {
     name: "~",
-    prec: 12,
+    prec: 14,
     apply: apply_bit_neg,
     can_apply: can_apply_unary_always,
 };
 pub const OP_NEG: UnaryOp = UnaryOp {
     name: "-",
-    prec: 12,
+    prec: 14,
     apply: apply_neg,
     can_apply: can_apply_unary_always,
 };
 pub const OP_NOT: UnaryOp = UnaryOp {
     name: "!",
-    prec: 12,
+    prec: 14,
     apply: apply_not,
     can_apply: can_apply_unary_always,
 };
